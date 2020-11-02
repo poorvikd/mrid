@@ -20,7 +20,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/one-page-wonder.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/one-page-wonder.css' %}" rel="stylesheet">
 
 </head>
 
@@ -39,6 +39,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: #ffffff;">Happy 19th Birthday Mridhullaaa</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'redeem' %}" style="color: #ffffff;">Prize!</a>
+                    </li>
+                    {% if bday %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'menu' %}" style="color: #ffffff;">Videos</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -49,7 +57,7 @@
             <div class="container">
                 <h1 class="masthead-heading mb-0" id="time">...</h1>
                 <h2 class="masthead-subheading mb-0">Till you become an Ajji</h2>
-                <a href="{% url 'menu' %}" class="btn btn-primary btn-xl rounded-pill mt-5">Click here!</a>
+                <a href="{% url 'games_list' %}" class="btn btn-primary btn-xl rounded-pill mt-5">Click here!</a>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>

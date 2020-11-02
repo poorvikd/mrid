@@ -60,7 +60,6 @@
         }
         .vid-link:hover{
             color: #000000;
-            text-decoration:none;
         }
     </style>
 </head>
@@ -70,7 +69,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container" style="background-color: none;">
-            <a class="navbar-brand" href="#" style="color: #ffffff;">Wo-Hoooo</a>
+            <a class="navbar-brand" href="{% url 'index'%}" style="color: #ffffff;">Wo-Hoooo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -92,11 +91,23 @@
                 <h2 class="masthead-subheading mb-0">Till you become an Ajji</h2>
                 <br>
                 <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                {% if video_exists%}
                 {% for video in videos %}
                 <div class="vid-container">
+                    {% if video.last_name != None %}
                     <a  class="vid-link" href="{% url 'video' video.id %}" style="color: #ffffff; font-size:30px;">{{video.first_name}} {{video.last_name}}</h4>
+                    {% else %}
+                    <a class="vid-link" href="{% url 'video' video.id %}" style="color: #ffffff; font-size:30px;">{{video.first_name}}</h4>
+                    {%endif%}
                 </div>
                 {% endfor %}
+                {% else %}
+                <h3>You have not unlocked any video yet</h3>
+                {% endif %}
             </div>
         </div>
         
